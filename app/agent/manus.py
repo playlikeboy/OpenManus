@@ -8,7 +8,6 @@ from app.tool import Terminate, ToolCollection
 from app.tool.browser_use_tool import BrowserUseTool
 from app.tool.python_execute import PythonExecute
 from app.tool.str_replace_editor import StrReplaceEditor
-from app.tool.chart_visualization.chart_visualization import ChartVisualization
 
 
 class Manus(BrowserAgent):
@@ -35,7 +34,6 @@ class Manus(BrowserAgent):
     available_tools: ToolCollection = Field(
         default_factory=lambda: ToolCollection(
             PythonExecute(),
-            ChartVisualization(),
             BrowserUseTool(),
             StrReplaceEditor(),
             Terminate(),
