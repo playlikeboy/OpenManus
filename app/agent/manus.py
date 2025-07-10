@@ -63,15 +63,8 @@ class Manus(ToolCallAgent):
         """Factory method to create and properly initialize a Manus instance."""
         instance = cls(**kwargs)
         await instance.initialize_mcp_servers()
-        instance.initialize_sandbox_tools()
         instance._initialized = True
         return instance
-
-    def initialize_sandbox_tools(self,password="123456") -> None:
-        sandbox = create_sandbox(password=password)
-        computer_tool = ComputerUseTool.create_with_sandbox(sandbox)
-        sandbox_tools=[computer_tool]
-        self.available_tools.add_tools(*sandbox_tools)
 
     async def initialize_mcp_servers(self) -> None:
         """Initialize connections to configured MCP servers."""
