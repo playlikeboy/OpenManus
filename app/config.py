@@ -106,9 +106,9 @@ class SandboxSettings(BaseModel):
 
 
 class DaytonaSettings(BaseModel):
-    daytona_api_key: str
+    daytona_api_key: Optional[str] = Field(None, description="Daytona API key")
     daytona_server_url: Optional[str] = Field(
-        "https://app.daytona.io/api", description=""
+        "https://app.daytona.io/api", description="Daytona server URL"
     )
     daytona_target: Optional[str] = Field("us", description="enum ['eu', 'us']")
     sandbox_image_name: Optional[str] = Field("whitezxj/sandbox:0.1.0", description="")
@@ -119,7 +119,7 @@ class DaytonaSettings(BaseModel):
     # sandbox_id: Optional[str] = Field(
     #     None, description="ID of the daytona sandbox to use, if any"
     # )
-    VNC_password: Optional[str] = Field(
+    vnc_password: Optional[str] = Field(
         "123456", description="VNC password for the vnc service in sandbox"
     )
 
